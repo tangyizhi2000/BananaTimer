@@ -26,7 +26,7 @@ function setup() {
     let temp_filename = 'https://raw.githubusercontent.com/tangyizhi2000/BananaTimer/main/' + str(i) + '.png'
     bananas.push(loadImage(temp_filename));
   }
-  shadow = loadImage('https://raw.githubusercontent.com/tangyizhi2000/BananaTimer/main/new%20shadow.png');
+  shadow = loadImage('https://raw.githubusercontent.com/tangyizhi2000/BananaTimer/main/finalshadow.png');
 
 }
 
@@ -50,6 +50,12 @@ function draw() {
   ellipse(new_xloc, new_yloc, 20, 20);
   speed_sum += speed;
 
+  distance_to_orbit = sqrt(new_xloc * new_xloc + new_yloc * new_yloc);
+  rotate(atan(new_yloc / new_xloc));
+  imageMode(CENTER);
+  image(shadow, 0, 0, distance_to_orbit, distance_to_orbit / 10);
+  //image(shadow, new_xloc / 2, new_yloc / 2, distance_to_orbit, distance_to_orbit);
+  
   /*
   translate(-width / 2, -height / 2);
   radius = min(width, height) / 2;
