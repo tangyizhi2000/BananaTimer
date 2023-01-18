@@ -33,7 +33,7 @@ function setup() {
 
 function draw() {
   // 
-  background(canvas_color);
+  //background(canvas_color);
   translate(width / 2, height / 2);
   // markings
   /*textSize(40);
@@ -43,16 +43,12 @@ function draw() {
   pop();*/
   
   // rotation
-  
   let s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
   x = starting_loc_x + orbit_hori * cos(s);
   y = starting_loc_y + orbit_verti * sin(s);
   new_xloc = x * cos(rotate_deg) - y * sin(rotate_deg);
   new_yloc = y * cos(rotate_deg) + x * sin(rotate_deg);
   
-  // loc
-  fill(100);
-  ellipse(x, y, 20, 20);
   // shadow
   push();
   distance_to_orbit = sqrt(new_xloc * new_xloc + new_yloc * new_yloc);
